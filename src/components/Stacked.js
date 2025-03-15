@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Text } from 'react-native';
 import Svg, { G, Rect } from 'react-native-svg';
-import Line from './Line';
+import Line from './line';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 const StackedBar_Chart = () => {
   const data = [
@@ -11,9 +12,9 @@ const StackedBar_Chart = () => {
     { label: 'D', group1: 5, group2: 6, group3: 4 },
   ];
 
-  const barWidth = 40; 
-  const spacing = 20; 
-  const maxHeight = 150; 
+  const barWidth =scale(66); 
+  const spacing =scale(1); 
+  const maxHeight =verticalScale(150); 
 
   return (
     <View
@@ -22,7 +23,7 @@ const StackedBar_Chart = () => {
         alignItems: 'center', 
     }}
     >
-      <Svg width="100%" height={200}
+      <Svg width="100%" height={verticalScale(200)}
 
       >
         {data.map((item, index) => {
@@ -65,4 +66,4 @@ const StackedBar_Chart = () => {
   );
 };
 
-export default StackedBar_Chart;
+export default memo(StackedBar_Chart);

@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "../../theme";
-import FontSize from "../../theme/fontSize";
+import { Colors ,FontSize,Margin} from "../../theme";
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 export const Styles = StyleSheet.create({
     container: {
-        flex: 1,
+       flex: 1,
         backgroundColor: 'pink',
         borderBottomRightRadius: 300,
     },
@@ -20,11 +20,11 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
     },
     Connect_Container: {
-        marginHorizontal: 60,
+        marginHorizontal: Margin.marin60,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 20,
+        marginBottom: Margin.margin20,
     }
  ,
   ContainerBtn:{

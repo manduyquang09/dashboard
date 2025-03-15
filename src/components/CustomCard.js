@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Colors from '../theme/Colors';
+import Colors from '../theme/colors';
 import { CardStyle } from './style';
+import { verticalScale } from 'react-native-size-matters';
 const Card = ({ title, children, color,isBold,height }) => {
     return (
         <View
 
             style={
               [  CardStyle.container_Card ,{
-                height : height ? height : "auto",
+                height : height ? verticalScale(height) : "auto",
               }]
             }>
             <Text
@@ -22,4 +23,4 @@ const Card = ({ title, children, color,isBold,height }) => {
     );
 }
 
-export default Card;
+export default memo(Card);

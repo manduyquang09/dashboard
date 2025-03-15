@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import { ButtonStyle } from './style';
 
 const CustomButton = ({label, Icon, onPress, backgroundColor, isFlex, marginhorizontal

@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { Colors,FontSize } from '../../theme';
+import { Colors,FontSize, Padding } from '../../theme';
 export const Styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.HOME_BACKGROUND,
-        paddingHorizontal: 16
+        paddingHorizontal: Padding.padding16, 
+        
     },
  
 })

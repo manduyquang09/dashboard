@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import Colors from '../theme/Colors';
+import Colors from '../theme/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import { SearchField_Style } from './style';
+import { moderateScale } from 'react-native-size-matters';
 const SearchField = () => {
     return (
         <View
             style={SearchField_Style.container_Search}
         >
-            <Icon name="search" size={17} color={Colors.ICON_GREY}
+            <Icon name="search" size={moderateScale(17)} color={Colors.ICON_GREY}
 
             />
 
@@ -18,13 +20,15 @@ const SearchField = () => {
                 style={SearchField_Style.textField}
             />
 
-            <Icon name="microphone" size={17} color={Colors.ICON_GREY}
+
+            <Icon name="microphone" size={moderateScale(17)} color={Colors.ICON_GREY}
 
             />
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({})
 
-export default SearchField;
+export default memo(SearchField);

@@ -1,11 +1,18 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Colors from '../theme/Colors';
+import React, { memo } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import Colors from '../theme/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { CardStyle } from './style';
-const CardContent = ({ iconName, content }) => {
+import { useNavigation } from '@react-navigation/native';
+
+const CardContent = ({ iconName, content,routeName}) => {
+    const navigation =useNavigation()
     return (
-        <View>
+        <TouchableOpacity
+        onPress={()=> {
+            navigation.navigate(routeName)
+        }}
+        >
             <View
                 style={
                     CardStyle.container_CardContent
@@ -17,7 +24,7 @@ const CardContent = ({ iconName, content }) => {
                 >{content}</Text>
         
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
@@ -40,4 +47,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CardContent;
+export default memo( CardContent);

@@ -1,11 +1,11 @@
-import Card from "./CustomCard";
-import CardContent from "./CardContent";
-import Line from "./Line";
+import Card from "./customCard";
+import CardContent from "./cardContent";
+import Line from "./line";
 import SearchField from "./searchField";
-import SmallCard from "./SmallCard";
-import StackedBar_Chart from "./Stacked";
-import CustomButton from "./CustomButton";
-import InputField from "./InputField";
+import SmallCard from "./smallCard";
+import StackedBar_Chart from "./stacked";
+import CustomButton from "./customButton";
+import InputField from "./inputField";
 export {
     Card, 
     CardContent, 

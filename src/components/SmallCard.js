@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Colors,FontSize } from '../theme';
 import { TinyCard_Style } from './style';
@@ -36,4 +36,4 @@ const SmallCard = () => {
     );
 }
 
-export default SmallCard;
+export default memo( SmallCard);

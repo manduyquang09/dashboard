@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
-import Colors from '../../../theme/Colors';
+import Colors from '../../../theme/colors';
 import { SearchField, CardContent, Card, Line } from '../../../components';
 import { Styles } from './style';
+import router from '../../../utils/router';
 const HomeScreen = () => {
     return (
         <View
@@ -26,46 +27,48 @@ const HomeScreen = () => {
                 }}
             >
                 <Card
-                title={"Favorite"}
+                    title={"Favorite"}
                 >
                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
+                        iconName={"search"}
+                        content={"Overview"}
+                        routeName={router.OVERVIEW}
                     />
-                    <Line/> 
-                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
-                    /> 
-                    <Line/>
-                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
-                    /> 
+                    <Line />
+                    <CardContent
+                        iconName={"search"}
+                        content={"user List"}
+                        routeName={router.USER_lIST}
+                    />
+                    <Line />
+                    <CardContent
+                        iconName={"search"}
+                        content={"My project"}
+                    />
                 </Card>
                 <Card
-                title={"dashboards"}
+                    title={"dashboards"}
                 >
-             <CardContent
-              iconName={"search"}
-                    content={"My project"}
-                    /> 
-                      <Line/>
-                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
-                    /> 
-                      <Line/>
-                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
-                    /> 
-                      <Line/>
-                     <CardContent
-                    iconName={"search"}
-                    content={"My project"}
-                    /> 
-              
+                    <CardContent
+                        iconName={"search"}
+                        content={"My project"}
+                    />
+                    <Line />
+                    <CardContent
+                        iconName={"search"}
+                        content={"My project"}
+                    />
+                    <Line />
+                    <CardContent
+                        iconName={"search"}
+                        content={"My project"}
+                    />
+                    <Line />
+                    <CardContent
+                        iconName={"search"}
+                        content={"My project"}
+                    />
+
                 </Card>
             </View>
         </View>

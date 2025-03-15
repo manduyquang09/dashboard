@@ -1,11 +1,13 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import HomeScreen from '../screens/home/styles/homeScreen';
+import {View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import OverviewScreen from '../screens/overview/OverviewScreen';
+
 import { Styles } from './style';
+import HomeScreen from '../screens/home/styles/homeScreen';
+import { OverviewScreen, UserListScreen } from '../screens';
+import Router from '../utils/router';
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 const One = () => {
@@ -16,7 +18,7 @@ const One = () => {
 
 const TabBar = () => {
     return (
-        <Tab.Navigator initialRouteName='two'
+        <Tab.Navigator initialRouteName={Router.HOME}
             screenOptions={({ route }) => ({
                 tabBarLabel: () => false,
                 tabBarStyle: Styles.tabContainer,
@@ -26,7 +28,7 @@ const TabBar = () => {
                 //         style={{
                 //             width: 361,
                 //             height: 76,
-                            
+
                 //             padding: 16,
                 //             borderRadius: 80,
                 //              backgroundColor: 'rgba(255, 255, 255, 0.04)',
@@ -34,14 +36,14 @@ const TabBar = () => {
                 //             //backgroundColor: "blue",
                 //             // flexDirection: "row",
                 //             // alignItems: "flex-start" ,
-                         
+
 
                 //         }}
                 //     />
                 // ),
                 tabBarIcon: ({ color, size }) => {
                     switch (route.name) {
-                        case "Home":
+                        case Router.HOME:
                             return <Icon name={'home'} size={30} color={"black"}
 
                             />
@@ -74,11 +76,11 @@ const TabBar = () => {
             })}
         >
             <Tab.Screen
-                name='Home'
+                name={Router.HOME}
                 component={HomeScreen}
                 options={{ headerShown: false }}
             />
-            <Tab.Screen name='two' component={OverviewScreen} />
+            <Tab.Screen name='two' component={One} />
             <Tab.Screen name='three' component={One} />
             <Tab.Screen name='four' component={One} />
             <Tab.Screen name='five' component={One} />
@@ -87,27 +89,43 @@ const TabBar = () => {
     );
 };
 
-const Detail = () => {
-    return <View></View>
-}
 const AppStack = () => {
 
-    <Stack.Navigator
-        initialRouteName='tab'
+    return <Stack.Navigator
+    initialRouteName={Router.HOME}
+screenOptions={{
+    headerShown:false
+}
+}
+>
+    <Stack.Screen
+        name={Router.HOME}
+        component={HomeScreen}
+    
+    />
+    <Stack.Screen
+        name={Router.OVERVIEW}
+        component={OverviewScreen}
+        options={{
+            title:"Overview",
+            headerTitleAlign:"center",
+            headerBackTitle:"back to login",
+            headerShown:true,
+        }}
 
-    >
-        <Stack.Screen
-
-            name='tab'
-            component={TabBar}
-
-        />
-        <Stack.Screen
-            name='detail'
-            component={Detail}
-        />
-    </Stack.Navigator>
+    />
+    <Stack.Screen
+        name={Router.USER_lIST}
+        component={UserListScreen}
+        options={{
+            title:"user List",
+            headerTitleAlign:"center",
+    headerBackTitle:"back",
+    headerShown:true,
+        }}
+    />
+</Stack.Navigator>
 }
 
 
-export default TabBar;
+export default AppStack;

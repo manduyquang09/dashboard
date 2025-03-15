@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from '../theme';
+import { Colors ,Padding} from '../theme';
 export const Styles = StyleSheet.create({
     tabContainer: {
 
@@ -14,7 +14,7 @@ export const Styles = StyleSheet.create({
     IconContainer: {
         width: 44,
         height: 44,
-        padding: 8,
+        padding:Padding.padding8,
         borderRadius: 8,
     },
     tabBarBacground:{

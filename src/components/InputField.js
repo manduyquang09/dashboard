@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Controller } from 'react-hook-form';
 import { InputStyle } from './style';
@@ -14,7 +14,7 @@ const InputField = ({
   isMultiple,
   hasError,
 }) => {
-  console.log(JSON.stringify(name))
+
   return (
     <View style={{ marginBottom: 20, marginHorizontal: 40 }}>
       <View
@@ -50,4 +50,4 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default memo(InputField);

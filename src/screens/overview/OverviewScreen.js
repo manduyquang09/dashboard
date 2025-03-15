@@ -1,29 +1,17 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
-import Card from '../../components/CustomCard';
+import Card from '../../components/customCard';
 import { LineChart, XAxis, BarChart, Grid, YAxis, StackedBarChart } from 'react-native-svg-charts';
 import { Svg, Defs, LinearGradient, Stop, Path, Circle, Line, Rect } from 'react-native-svg';
 import * as scale from 'd3-scale';
-import StackedBar_Chart from '../../components/Stacked';
-import { Colors,FontSize  } from '../../theme';
-import SmallCard from '../../components/SmallCard';
+import StackedBar_Chart from '../../components/stacked';
+import { Colors,FontSize, Padding  } from '../../theme';
+import SmallCard from '../../components/smallCard';
 import { Styles } from './style';
-
+import {  data, itemList, colors,labels,StackedData } from '../../utils/heplers';
+import { s, vs, ms, mvs } from 'react-native-size-matters';
 const OverviewScreen = () => {
-    const data = [30, 30, 35, 35, 25, 45];
-    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
     const contentInset = { top: 10, bottom: 10, left: 10, right: 10 };
-    const datas = [50, 10, 40, 95, 85, 35];
-    const StackedData = [
-        { all: 10, snowUI: 5, dashboard: 8 },
-        { all: 15, snowUI: 10, dashboard: 12 },
-        { all: 8, snowUI: 3, dashboard: 6 },
-        { all: 12, snowUI: 7, dashboard: 10 },
-        { all: 18, snowUI: 12, dashboard: 15 },
-        { all: 9, snowUI: 4, dashboard: 7 },
-    ];
-    const itemList = ['all', 'snowUI', 'dashboard'];
-    const colors = ['black', 'grey', 'red'];
     const ChartBackgound = ({ x, y, data }) => {
         const linePath = data
             .map((value, index) => `${index === 0 ? 'M' : 'L'}${x(index)},${y(value)}`)
@@ -34,7 +22,7 @@ const OverviewScreen = () => {
                 d={`${linePath} L${x(data.length - 1)},${y(0)} L${x(0)},${y(0)} Z`}
                 fill="url(#gradient)"
             />
-        );
+        ); 
     };
 
     const Decorator = ({ x, y, data }) => {
@@ -71,7 +59,10 @@ const OverviewScreen = () => {
             <View
                 style={{
                     flexDirection: "row", justifyContent: "space-between",
-                    paddingVertical: 16,
+                    alignSelf:"center",
+                    paddingVertical:Padding.padding16,
+                width:s(361), 
+                 //  height:vs(208),
                     gap: 16
                 }}
             >
@@ -94,7 +85,7 @@ const OverviewScreen = () => {
                     <Defs>
                         <LinearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <Stop offset="0%" stopColor="rgba(175, 82, 222, 1)" />
-                            <Stop offset="40%" stopColor="white" />
+                            <Stop offset="45%" stopColor="white" />
                         </LinearGradient>
                     </Defs>
                     <ChartBackgound x={d => x(d.index)} y={d => y(d.value)} data={data} />
@@ -155,7 +146,7 @@ const OverviewScreen = () => {
                 </View>
 
                 <StackedBarChart
-                    style={{ height: 132 }}
+                    style={{ height:vs(132) }}
                     keys={itemList}
                     colors={colors}
                     data={StackedData}

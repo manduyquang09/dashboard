@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { Colors, FontSize } from '../theme';
+import { Colors, FontSize,Padding ,Margin} from '../theme';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 export const InputStyle = StyleSheet.create({
     containerInput: {
         flexDirection: 'row',
         backgroundColor: '#e9e8e8',
         alignItems: 'center',
         borderRadius: 25,
-        paddingHorizontal: 20,
+        paddingHorizontal: Padding.padding20,
         paddingVertical: 3,
         elevation: 4,
     },
@@ -18,7 +19,7 @@ const ButtonStyle = StyleSheet.create({
         backgroundColor: Colors.DEFAULT_WHITE,
         padding: 4,
         position: 'absolute',
-        left: 20,
+        left:Margin.margin20 ,
         //borderRadius: 10,
         alignItems: 'flex-end',
 
@@ -34,32 +35,34 @@ const ButtonStyle = StyleSheet.create({
 
 const SearchField_Style = StyleSheet.create({
     container_Search: {
-        width: 361,
-        height: 36,
-
+        width: scale(361),
+        height: verticalScale(36),
         //36
-        paddingHorizontal: 8,
-        paddingVertical: 7,
+        paddingHorizontal: Padding.padding8,
+        paddingVertical: Padding.padding7,
         borderRadius: 10,
         backgroundColor: Colors.DEFAULT_GREY,
         flexDirection: "row",
-        alignItems: 'center'
+        alignItems: 'center',
+   
     },
     textField: {
-
-        height: 22,
-        width: 303,
-        fontSize: FontSize.font16,
-
+flex:1,
+        height: verticalScale(0),
+        width: scale(303),
+        fontSize: FontSize.font16+1,
         letterSpacing: -0.43,
         fontWeight: "400",
+        lineHeight:moderateScale(17),
         color: Colors.ICON_GREY,
     }
 })
 
 const CardStyle = StyleSheet.create({
     container_Card: {
-        width: "100%",
+    //    width: "100%",
+    alignSelf:"center",
+   width: scale(361),
         borderRadius: 16,
         backgroundColor: '#FFF',
         shadowColor: '#000',
@@ -67,12 +70,12 @@ const CardStyle = StyleSheet.create({
         shadowRadius: 1,
         elevation: 1,
         opacity: 1,
-        marginBottom: 16,
+        marginBottom: Margin.margin16,
     },
     titleText: {
         fontSize: FontSize.font18,
-        paddingTop: 16,
-        paddingHorizontal: 16,
+        paddingTop: Padding.padding16,
+        paddingHorizontal: Padding.padding16,
         fontWeight: "regular",
 
         marginBottom: 8,
@@ -81,14 +84,14 @@ const CardStyle = StyleSheet.create({
         width: 361,
         height: 60,
         padding: 16,
-        marginBottom: 16,
+        marginBottom: Margin.margin16,
         flexDirection: "row",
         alignItems: 'center',
 
 
     },
     contexText: {
-        marginLeft: 16,
+        marginLeft: Margin.margin16,
         fontWeight: "400",
         fontSize: FontSize.font18,
         color: Colors.DEFAULT_BLACK
@@ -97,18 +100,18 @@ const CardStyle = StyleSheet.create({
 const TinyCard_Style =StyleSheet.create({
     container: {
         backgroundColor:Colors.DEFAULT_BLUE,
-        padding: 16,
+        padding: Padding.padding16,
         borderRadius: 16,
-        elevation: 1,
-        width: 176,
-        minWidth: 160,
-        height: 100
+        elevation: 3,
+        width: scale(176),
+        minWidth: scale(160),
+        height: verticalScale(100)
     }
     ,
     text: {
         fontWeight: "regular",
-        fontSize: FontSize.font14,
-        lineHeight: 20,
+        fontSize: moderateScale(FontSize.font14),
+        lineHeight: verticalScale(20),
         color: Colors.DEFAULT_WHITE
     },
     container_Row:{
@@ -116,17 +119,24 @@ const TinyCard_Style =StyleSheet.create({
     },
     numberTxt: {
         fontWeight: "bold",
-        fontSize: FontSize.font18,
-        lineHeight: 28,
+        fontSize:moderateScale( FontSize.font18),
+        lineHeight: verticalScale(28),
         color: Colors.DEFAULT_WHITE
     },
     percentTxt: {
-        fontSize: FontSize.font14,
+        fontSize: moderateScale(FontSize.font14),
 
-        lineHeight: 20,
+        lineHeight: verticalScale(20),
         fontWeight: "regular",
         color: Colors.DEFAULT_WHITE,
 
+    } ,
+    containerIcon:{
+        padding:moderateScale(Padding.padding7-2),
+        paddingHorizontal:moderateScale(Padding.padding10), 
+        elevation:4,
+        borderRadius:40,
+        backgroundColor:Colors.DEFAULT_BLUE
     }
 })
 
